@@ -17,16 +17,15 @@ def eulerC(aproxEC):
     return aproxEC
 
 def eulerR(aproxR):
-    g = 9.85
-    m = 2
-    dt= 0.1
+    g = -9.85
+    m = 1
+    dt = 0.01
     a = g/m
     atualV = atualY = 0
 
     for i in range (0,10):
-        proxV = atualV + 0.5*a*dt
-        dt+=0.5*dt
-        proxY = atualY + proxV*0.5*dt
+        proxV = atualV + a*dt
+        proxY = atualY + (atualV+ 0.5*a*dt)*dt
         aproxR.append(proxY)
         atualV = proxV
         atualY = proxY
@@ -49,13 +48,12 @@ def euler(aproxE):
 def iterativo(aproxI):
     dt = 0.01
     g = 9.85
-    atualV = atualY = 0
-    for i in range (1,10):
-        proxV = atualV - g * dt
-        proxY = atualY + atualV * dt - (g * (dt*dt))/2
-        aproxI.append(proxY)
-        atualV = proxV
-        atualY = proxY
+    #atualV = atualY = 0
+    y0=v0=0
+    for i in range (0,10):
+        v = v0 - g * dt*i
+        y = y0 + v0 * dt*i - (g * ((dt*i)*(dt*i)))/2
+        aproxI.append(y)
     return aproxI
 
 def main():
