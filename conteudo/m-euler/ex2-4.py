@@ -7,7 +7,7 @@ def eulerC(aproxEC):
     dt = 0.01
     atualV = atualY = 0
 
-    for i in range (1,10) :
+    for i in range (0,10) :
         proxV = atualV - g*dt
         proxY = atualY + proxV*dt
         aproxEC.append(proxY)
@@ -36,7 +36,7 @@ def euler(aproxE):
     dt = 0.01
     atualV = atualY = 0
 
-    for i in range (1,10) :
+    for i in range (0,10) :
         proxV = atualV - g*dt
         proxY = atualY + atualV*dt
         aproxE.append(proxY)
@@ -70,7 +70,7 @@ def main():
     print(aproxEC)
     print(aproxR)
     print(real)
-    plt.plot(real, color = 'green', label = 'Iterativo')
+    plt.plot(real, color = 'green', label = 'Analítica')
     plt.plot(aproxE, color = 'red', label = 'Euler')
     plt.plot(aproxR, color = 'pink', label = 'Euler-Rich')
     plt.plot(aproxEC, color = 'blue', label = 'Euler - Cromer')
