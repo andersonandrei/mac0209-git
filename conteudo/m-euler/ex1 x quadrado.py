@@ -33,3 +33,5 @@ def main():
     plt.grid(True)
     plt.show()
     return 0
+
+main ()
